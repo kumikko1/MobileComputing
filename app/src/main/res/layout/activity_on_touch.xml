@@ -10,10 +10,89 @@
     tools:context="com.mlabs.bbm.firstandroidapp_morningclass.OnTouch">
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/kil"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/maxresdefault"/>
+        android:background="@drawable/maxresdefault"
+        android:layout_above="@+id/dx" />
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x1"
+
+        android:hint="x1:"
+        android:layout_above="@+id/dir"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x2"
+        android:hint="x2:"
+        android:layout_above="@+id/dir"
+        android:layout_toRightOf="@+id/dy"
+        android:layout_toEndOf="@+id/dy" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y1"
+        android:hint="y1:"
+        android:layout_below="@+id/dx"
+        android:layout_toRightOf="@+id/quad"
+        android:layout_toEndOf="@+id/quad" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y2"
+        android:hint="y2:"
+        android:layout_above="@+id/quad"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dx"
+        android:hint="deltax:"
+        android:layout_alignTop="@+id/dy"
+        android:layout_alignLeft="@+id/y1"
+        android:layout_alignStart="@+id/y1" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dy"
+        android:hint="deltay:"
+        android:layout_above="@+id/dir"
+        android:layout_alignLeft="@+id/dir"
+        android:layout_alignStart="@+id/dir"
+        android:layout_marginBottom="76dp" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dir"
+        android:hint="direction:"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quad"
+        android:hint="quadrant:"
+        android:layout_below="@+id/y1"
+        android:layout_toRightOf="@+id/y2"
+        android:layout_toEndOf="@+id/y2" />
 </RelativeLayout>

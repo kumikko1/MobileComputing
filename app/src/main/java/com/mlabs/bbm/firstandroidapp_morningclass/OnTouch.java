@@ -1,75 +1,103 @@
 package com.mlabs.bbm.firstandroidapp_morningclass;
 
-import android.content.Intent;
+import android.support.annotation.FloatRange;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class OnTouch extends AppCompatActivity {
+    EditText x1,x2,y1,y2,xdiff,ydiff,dir,quad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_touch);
 
-        final ImageView img1;
+        final ImageView imgView = (ImageView)findViewById(R.id.kil);
+        x1=(EditText)findViewById(R.id.x1);
+        x2=(EditText)findViewById(R.id.x2);
+        y1=(EditText)findViewById(R.id.y1);
+        y2=(EditText)findViewById(R.id.y2);
+        xdiff=(EditText)findViewById(R.id.dx);
+        ydiff=(EditText)findViewById(R.id.dy);
+        dir=(EditText)findViewById(R.id.dir);
+        quad=(EditText)findViewById(R.id.quad);
 
-        img1=(ImageView)findViewById(R.id.kil );
+        imgView.setOnTouchListener(new View.OnTouchListener() {
+            float initX = 0, initY = 0, finalX = 0, finalY = 0;
 
-        img1.setOnTouchListener(new View.OnTouchListener(){
-
-            float x1 = 0, y1 = 0, x2 = 0, y2 = 0;
             @Override
-
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                int event = motionEvent.getAction();
-                switch (event) {
+                switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        x1 = motionEvent.getX();
-                        y1 = motionEvent.getY();
-                        Toast.makeText(getApplicationContext(), "" + String.format("swipe", x1, y1), Toast.LENGTH_SHORT).show();
+                        initX = motionEvent.getX();
+                        initY = motionEvent.getY();
                         return true;
                     case MotionEvent.ACTION_UP:
-                        x2 = motionEvent.getX();
-                        y2 = motionEvent.getY();
-                        displayAction(x1, x2, y1, y2);
-                        return true;
+                        finalX = motionEvent.getX();
+                        finalY = motionEvent.getY();
 
-                }
-                return false;
+                        display(initX, finalX, initY, finalY);
+                        return false;
+                }return false;
             }
-            public void displayAction(float valx1, float valx2, float valy1, float valy2)
-            {
-                String msg = "";
-                if(valx1<valx2)
-                {
-                    msg = String.format("right");
-
-                }else if(valx1 > valx2){
-                    msg = String.format("left");
-                }
-
-                Toast.makeText(getApplicationContext(),"" +msg, Toast.LENGTH_SHORT).show();
-                if (valy1  < valy2)
-                {
-                    msg = String.format("down");
-
-                }else if (valy1 > valy2)
-                {
-                    msg = String.format("up");
-
-                }
-                Toast.makeText(getApplicationContext(),"" +msg, Toast.LENGTH_SHORT).show();
-            }
-
         });
     }
 
+    public void display(float inix, float finx, float iniy, float finy){
+        String x = "", y = "";
+        float delx, dely;
+
+        delx = inix-finx;
+        dely = iniy-finy;
+
+        if(inix == finy){
+        }else if(inix > finx){
+            x = "Left";
+        }else if(inix < finx){
+            x = "Right";
+        }
+
+        if(iniy == finy){
+
+        }else if(iniy > finy){
+            y = "Up";
+        }else if (iniy < finy){
+            y = "Down";
+        }
+
+        x1.setText("x1: "+Float.toString(inix));
+        x2.setText("x2: "+Float.toString(finx));
+        y1.setText("y1: "+Float.toString(iniy));
+        y2.setText("y2: "+Float.toString(finx));
+        xdiff.setText("xdiff: "+Float.toString(delx));
+        ydiff.setText("ydiff: "+Float.toString(dely));
+
+        if(x.equals("Right")){
+            if(y.equals("Up")){
+                dir.setText("Swipe: Right-Up");
+                quad.setText("Quadrant: 1");
+            }else{
+                dir.setText("Swipe: Right-Down");
+                quad.setText("Quadrant: 4");
+            }
+        }else if(x.equals("Left")){
+            if(y.equals("Up")){
+                dir.setText("Swipe: Left-Up");
+                quad.setText("Quadrant: 2");
+            }else{
+                dir.setText("Swipe: Left-Down");
+                quad.setText("Quadrant: 3");
+            }
+        }else{
+            dir.setText("Swipe: Origin");
+            quad.setText("Quadrant: 0");
+        }
+    }
 }
 

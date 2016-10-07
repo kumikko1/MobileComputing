@@ -23,7 +23,7 @@
         android:id="@+id/x1"
 
         android:hint="x1:"
-        android:layout_above="@+id/dir"
+        android:layout_above="@+id/direction"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/x2"
         android:hint="x2:"
-        android:layout_above="@+id/dir"
+        android:layout_above="@+id/direction"
         android:layout_toRightOf="@+id/dy"
         android:layout_toEndOf="@+id/dy" />
 
@@ -44,15 +44,15 @@
         android:id="@+id/y1"
         android:hint="y1:"
         android:layout_below="@+id/dx"
-        android:layout_toRightOf="@+id/quad"
-        android:layout_toEndOf="@+id/quad" />
+        android:layout_toRightOf="@+id/quadrant"
+        android:layout_toEndOf="@+id/quadrant" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/y2"
         android:hint="y2:"
-        android:layout_above="@+id/quad"
+        android:layout_above="@+id/quadrant"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -71,16 +71,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/dy"
         android:hint="deltay:"
-        android:layout_above="@+id/dir"
-        android:layout_alignLeft="@+id/dir"
-        android:layout_alignStart="@+id/dir"
+        android:layout_above="@+id/direction"
+        android:layout_alignLeft="@+id/direction"
+        android:layout_alignStart="@+id/direction"
         android:layout_marginBottom="76dp" />
 
     <EditText
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dir"
+        android:id="@+id/direction"
         android:hint="direction:"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -90,7 +90,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/quad"
+        android:id="@+id/quadrant"
         android:hint="quadrant:"
         android:layout_below="@+id/y1"
         android:layout_toRightOf="@+id/y2"

@@ -11,7 +11,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class OnTouch extends AppCompatActivity {
-    EditText x1,x2,y1,y2,xdiff,ydiff,dir,quad;
+    EditText x1,x2,y1,y2,xdiff,ydiff,direction,quadrant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class OnTouch extends AppCompatActivity {
         y2=(EditText)findViewById(R.id.y2);
         xdiff=(EditText)findViewById(R.id.dx);
         ydiff=(EditText)findViewById(R.id.dy);
-        dir=(EditText)findViewById(R.id.dir);
-        quad=(EditText)findViewById(R.id.quad);
+        direction=(EditText)findViewById(R.id.direction);
+        quadrant=(EditText)findViewById(R.id.quadrant);
 
         imgView.setOnTouchListener(new View.OnTouchListener() {
             float initX = 0, initY = 0, finalX = 0, finalY = 0;
@@ -80,23 +80,23 @@ public class OnTouch extends AppCompatActivity {
 
         if(x.equals("Right")){
             if(y.equals("Up")){
-                dir.setText("Swipe: Right-Up");
-                quad.setText("Quadrant: 1");
+                direction.setText("Swipe: Right-Up");
+                quadrant.setText("Quadrant: 1");
             }else{
-                dir.setText("Swipe: Right-Down");
-                quad.setText("Quadrant: 4");
+                direction.setText("Swipe: Right-Down");
+                quadrant.setText("Quadrant: 4");
             }
         }else if(x.equals("Left")){
             if(y.equals("Up")){
-                dir.setText("Swipe: Left-Up");
-                quad.setText("Quadrant: 2");
+                direction.setText("Swipe: Left-Up");
+                quadrant.setText("Quadrant: 2");
             }else{
-                dir.setText("Swipe: Left-Down");
-                quad.setText("Quadrant: 3");
+                direction.setText("Swipe: Left-Down");
+                quadrant.setText("Quadrant: 3");
             }
         }else{
-            dir.setText("Swipe: Origin");
-            quad.setText("Quadrant: 0");
+            direction.setText("Swipe: Origin");
+            quadrant.setText("Quadrant: 0");
         }
     }
 }

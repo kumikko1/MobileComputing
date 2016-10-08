@@ -68,12 +68,17 @@ public class MainActivity extends AppCompatActivity {
 //                   passWord.setTransformationMethod(new PasswordTransformationMethod());
 //                      return false;
 //                  }
+                    EditText et = (EditText)findViewById(R.id.editText3);
+                    et.setSelection(et.getText().length());
+
                     switch (motionEvent.getAction())
                     {
                         case MotionEvent.ACTION_DOWN:
                             passWord.setTransformationMethod(null);
+
                             return true;
                         case MotionEvent.ACTION_UP:
+
                             passWord.setTransformationMethod(new PasswordTransformationMethod());
                             return false;
                         default:
@@ -92,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+
         if (btn!=null){
             btn3.setOnClickListener(new View.OnClickListener(){
                 //@Override;
@@ -116,4 +123,5 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
 }

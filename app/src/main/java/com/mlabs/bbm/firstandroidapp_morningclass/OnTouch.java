@@ -99,5 +99,10 @@ public class OnTouch extends AppCompatActivity {
             quadrant.setText("Quadrant: 0");
         }
     }
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        finish();
+    }
 }
 
